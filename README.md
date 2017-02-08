@@ -13,7 +13,7 @@
 
 
 ## What is the problem the group try to address?
-Businesses usually use different kinds of software to do their day to day office activities, our group is trying to combine all those packages into one website. This will simplify and standardize businessesâ€™ office operation, additionally computers are not necessary to install any software and can access it from anywhere.
+Businesses usually use different kinds of software to do their day to day office activities, our group is trying to combine all those packages into one website. This will simplify and standardize businesses’ office operation, additionally computers are not necessary to install any software and can access it from anywhere.
 
 
 ## The proposed solution
