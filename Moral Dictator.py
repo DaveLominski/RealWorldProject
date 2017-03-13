@@ -132,8 +132,8 @@ class GameGUI:
         return combined_func
 
     def game_init(self):
-        early_population = randint(5000000, 6000000)
-        early_finance = randint(35000, 40000)
+        early_population = randint(900000, 1000000)
+        early_finance = randint(20000, 30000)
 
         early_pop_normal = early_population * 0.7
         early_pop_elite = early_population * 0.3
