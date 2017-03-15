@@ -1,0 +1,54 @@
+/* Button Styles */
+.btn-main {
+    background: firebrick;
+    color: white;
+    border: 1px solid black;
+    border-radius: 0;
+    box-shadow: 0 5px 5px 0px rgba(152,0,0,0.75);
+    transition: 0.3s ease;
+}
+
+.btn-main:hover, .btn-second-main:focus {
+    background: maroon;
+    color: white;
+    box-shadow: none;
+}
+
+.btn-second-main {
+    background: darkgoldenrod;
+    color: white;
+    border: 1px solid black;
+    border-radius: 0;
+    box-shadow: 0 5px 5px 0px rgba(152,115,22,0.75);
+    transition: 0.3s ease;
+}
+
+.btn-second-main:hover, .btn-main:focus {
+    background: #C4941C;
+    color: white;
+    box-shadow: none;
+}
+
+.btn-help {
+    background: transparent;
+    border: 2px solid white;
+    border-radius: 0;
+    color: white;
+    transition: 0.3s ease;
+}
+
+.btn-help:hover {
+    background: darkgoldenrod;
+    color: white;
+}
+
+.btn-help:focus {
+    color: white;
+}
+
+.btn-close {
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    margin-bottom: 15px;
+}

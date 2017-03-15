@@ -1,0 +1,16 @@
+.dropdown {
+    font-family: monospace, sans-serif, serif;
+}
+
+.dropdown button {
+    background-color: darkgoldenrod;
+    border-radius: 0;
+    border: 0;
+    transition: 0.3s ease;
+}
+
+.dropdown button:hover,
+.dropdown button:focus,
+.dropdown.open > button {
+    background-color: goldenrod !important;
+}

@@ -1,0 +1,31 @@
+.updateFeed {
+    display: block;
+    margin-top: 320px;
+    position: fixed;
+    width: inherit;
+}
+
+.un-decor > li {
+    list-style-type: none;
+    font-family: monospace, sans-serif, serif;
+    margin-left: -30px;
+}
+
+.un-decor > li:before {
+    content: "\25A0";
+    color: firebrick;
+}
+
+@media (max-width: 768px){
+    .updateFeed {
+        display: none;
+    }
+}
+
+@media (max-height: 500px){
+    .updateFeed {
+        position: relative;
+        width: 110%;
+        margin-top: auto;
+    }
+}

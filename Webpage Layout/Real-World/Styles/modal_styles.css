@@ -1,0 +1,27 @@
+/* Modal Styles */
+.modal-content, .modal-body {
+    background-color: darkred;
+    border-radius: 0;
+    border: 2px solid white;
+}
+
+.emailForm {
+    margin-top: 25px;
+    margin-bottom: 15px;
+}
+
+.emailForm input, .emailForm textarea {
+    margin-bottom: 5px;
+}
+
+.emailForm textarea {
+    resize: none;
+}
+
+.option {
+    margin-top: 10px;
+}
+
+.question-attributes {
+    margin-bottom: 15px;
+}

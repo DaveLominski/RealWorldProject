@@ -1,0 +1,24 @@
+/* Footer Styles */
+.footer {
+    color: white;
+    background-color: darkred;
+    border: 1px solid black;
+    margin-top: 70px;
+    margin-bottom: 10px;
+    padding: 20px;
+}
+
+@media (max-width: 768px) {
+    .footer {
+        margin-left: -15px;
+        margin-right: -15px;
+        margin-bottom: 0;
+    }
+}
+
+/* XXS Screens */
+@media (max-width: 500px) {    
+    .btn-help {
+        display: none;
+    }
+}

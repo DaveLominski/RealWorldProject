@@ -1,0 +1,55 @@
+/* Carousel Styles */
+#carousel {
+    height: auto;
+    width: auto;
+    overflow: hidden;
+}
+
+.carousel-indicators li {
+    background: darkred;
+    border-radius: 0;
+    border: 1px solid black;
+    margin: 1%;
+}
+
+.carousel-indicators li.active {
+    background: darkgoldenrod;
+    border-radius: 0;
+    border: 1px solid black;
+    margin: 1%;
+}
+
+.carousel-control {
+    background: rgba(70,0,0,0.3);
+    width: 10%;
+    transition: 0.3s ease;
+}
+
+.carousel-control:hover {
+    background: rgba(70,0,0,0.6);
+}
+
+.carousel-control.left {
+    box-shadow: 9px 0px 5px rgba(70,0,0,0.3);
+}
+
+.carousel-control.right {
+    box-shadow: -9px 0px 5px rgba(70,0,0,0.3);
+}
+
+.carousel-control.left:hover {
+    box-shadow: 9px 0px 5px rgba(70,0,0,0.6);
+}
+
+.carousel-control.right:hover {
+    box-shadow: -9px 0px 5px rgba(70,0,0,0.6);
+}
+
+.carousel-control .glyphicon {
+    color: darkgoldenrod;
+}
+
+.item img {
+    min-width: 100%;
+    overflow: hidden;
+}

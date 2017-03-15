@@ -1,0 +1,11 @@
+/* Content Container Styles */
+.mainContainer {
+    display: block;
+    margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+    .mainContainer {
+        margin-top: 60px;
+    }
+}

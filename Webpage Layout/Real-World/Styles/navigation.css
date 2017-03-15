@@ -1,0 +1,129 @@
+/* Bootstrap Navigation Styles */
+.navbar {
+    border-color: black;
+}
+
+.navbar-default {
+    background-color: darkred;
+    border-radius: 0;
+    box-shadow: 0 5px 5px 0px rgba(0,0,0,0.75);
+}
+
+.navbar-nav {
+    margin: 0 -15px;
+}
+
+.navbar-default .navbar-brand {
+    color: goldenrod;
+}
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus {
+    color: goldenrod;
+}
+
+.navbar-default .navbar-nav > li > a {
+    color: white;
+    transition: 0.5s ease;
+}
+
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+    color: white;
+    background-color: darkgoldenrod;
+}
+
+.navbar-default .navbar-nav > .active > a,  
+.navbar-default .navbar-nav > .active > a:focus {
+    color: white;
+    background-color: goldenrod;
+}
+
+.navbar-default .navbar-nav > .active > a:hover {
+    color: white;
+    background-color: darkgoldenrod;
+}
+
+.navbar-default .navbar-nav > .open > a, 
+.navbar-default .navbar-nav > .open > a:hover, 
+.navbar-default .navbar-nav > .open > a:focus {
+    color: white;
+    background-color: darkgoldenrod;
+}
+
+/* mobile version */
+.navbar-default .navbar-toggle {
+    border: none;
+    background-color: darkred;
+    border-radius: 0;
+    transition: 0.3s ease;
+}
+
+
+.navbar-default .navbar-toggle:hover,
+.navbar-default .navbar-toggle:focus {
+    border: none;
+    background-color: firebrick;
+    border-radius: 0;
+}
+.navbar-default .navbar-toggle .icon-bar {
+    background-color: darkgoldenrod;
+}
+@media (max-width: 767px) {
+    .navbar-default .navbar-nav .open .dropdown-menu > li > a {
+        color: darkgoldenrod;
+    }
+}
+
+/* Desktop Navigation Styles */
+.mainNav {
+    display: block;
+    position: fixed;
+    width: inherit;
+    bottom: auto;
+}
+
+.mainNav .nav > li > a {
+    background-color: darkred;
+    color: white;
+    border-radius: 0;
+    border: 1px solid black;
+    margin-right: 15px;
+    transition: 0.3s ease;
+}
+
+.mainNav .nav > li > a:hover,
+.mainNav .nav > li > a:focus {
+    background-color: darkgoldenrod;
+}
+
+.mainNav .nav > li.active > a {
+    background-color: goldenrod;
+}
+
+.mainNav .nav > li.active > a:hover,
+.mainNav .nav > li.active > a:focus {
+    background-color: darkgoldenrod;
+}
+
+/* Mobile Navigation Styles */
+.mobileNav {
+    display: none;
+}
+
+@media (max-height: 500px) {
+    .mainNav {
+        position: relative;
+        width: 110%;
+    }
+}
+
+/* Navigation Media Queries */
+@media (max-width: 768px){
+    .mainNav {
+        display: none;
+    }
+    
+    .mobileNav {
+        display: block;
+    }
+}
