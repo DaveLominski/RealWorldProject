@@ -3,23 +3,30 @@ from random import randint
 from random import uniform
 
 """ You are the son of a great dictator!
-
     You have 9 town districts, 2 military base, 1 research facility, 3 elite districts, and your main capital.
     As you are now the supreme leader, you can do anything you want in your command. This game will reflect how you
 
     REMEMBER! ALL YOUR CHOICES RESULTS DIFFERENT CONSEQUENCES
+    ##########################################
+    This is used for prototype purpose ONLY!
+    Real game will be applied to a game engine.
+    
+    Dev Notes:
+    - Balanced randomize algorithm INTERGRATED
+    - Question banks algorithm NOT INTERGRATED
+    - Option buttons NOT WORKING
+    - District buttons are WORKING
 """
-
 
 class GameGUI:
     def __init__(self, root):
+        """ Initialise tkinter root (for GUI only! variable declaration is seperated!) """
         self.game_init()
-
         self.root = root
         self.number = 0
         self.numString = ''
 
-        # Main Frames
+        # INITIALISE MAIN FRAME
         self.frame_top_bar = Frame(self.root)
         self.frame_down_info = Frame(self.root)
         self.frame_down_map = Frame(self.root)
@@ -28,11 +35,11 @@ class GameGUI:
         self.frame_down_info.pack(side=LEFT, expand=True)
         self.frame_down_map.pack(side=LEFT, fill=BOTH, expand=True)
 
-        # TOP BAR INIT
+        # INITIALISE TOP BAR
         self.label_news = Label(self.frame_top_bar, text="NEWS: You are the son of a great dictator!")
         self.label_news.pack(fill=BOTH, expand=True)
 
-        # INFO INIT
+        # INITIALISE LEFT OPTIONS
         self.email_message = Label(self.frame_down_info, justify=LEFT, text="FROM: -\nTIME: -\nMessage: Not available")
         self.frame_option = Frame(self.frame_down_info)
         self.frame_option_exp = Frame(self.frame_down_info)
@@ -53,7 +60,7 @@ class GameGUI:
         self.button_option_2.pack(side=LEFT, fill=BOTH, expand=True)
         self.district_info.pack(side=TOP, fill=BOTH, expand=True)
 
-        # MAP INIT
+        # INITIALISE DISTRICT GUI STRUCTURE
         self.frame1 = Frame(self.frame_down_map)
         self.frame1.pack(fill=BOTH, expand=True)
         self.frame2 = Frame(self.frame_down_map)
@@ -67,6 +74,7 @@ class GameGUI:
         self.frame6 = Frame(self.frame_down_map)
         self.frame6.pack(fill=BOTH, expand=True)
 
+        # DECLARE DISTRICT BUTTONS
         self.button_d1 = Button(self.frame1, text='District 1',
                                 command=lambda: self.district_status_update("District 1", self.district_1.show_string()))
         self.button_d2 = Button(self.frame1, text='District 2',
@@ -100,6 +108,7 @@ class GameGUI:
         self.button_capital = Button(self.frame6, text='Capital',
                                      command=lambda: self.district_status_update("Capital", self.capital.show_string()))
 
+        # PACKING DISTRICTS
         self.button_d1.pack(side=LEFT, fill=BOTH, expand=True)
         self.button_d2.pack(side=LEFT, fill=BOTH, expand=True)
         self.button_d3.pack(side=LEFT, fill=BOTH, expand=True)
@@ -118,6 +127,7 @@ class GameGUI:
         self.button_capital.pack(fill=BOTH, expand=True)
 
     def district_status_update(self, district_name, district_input):
+        """ Change string of District value when District pressed """
         try:
             district_output = "%s\n\n%s" % (district_name, district_input)
             self.district_info.config(text=district_output)
@@ -125,6 +135,7 @@ class GameGUI:
             print("ERROR: " + str(e))
 
     def combine_funcs(*funcs):
+        """ Tailored function combination method for tkinter future development """
         def combined_func(*args, **kwargs):
             for f in funcs:
                 f(*args, **kwargs)
@@ -132,30 +143,38 @@ class GameGUI:
         return combined_func
 
     def game_init(self):
+        """ Initialise the game at start
+        note: this is a bad practice in programming but because of multiple redundant codes
+        I seperate this with the __init__
+        """
+        
+        # Raw values
         early_population = randint(900000, 1000000)
         early_finance = randint(20000, 30000)
 
+        """ dividing each Districts with portion of values """
         early_pop_normal = early_population * 0.7
         early_pop_elite = early_population * 0.3
         early_fin_normal = early_finance * 0.5
         early_fin_elite = early_finance * 0.5
 
-        # normal var
+        # district 1 - 9 variables
         normal_div = [0.1, 0.02, 0.18, 0.09, 0.11, 0.07, 0.12, 0.05, 0.15]
         pop_res, pop_res_cap, fin_res, food_res = [], [], [], []
 
-        for percentage in normal_div:
-            pop_res.append(round(early_pop_normal * percentage))
-            pop_res_cap.append(round(early_pop_normal * percentage * uniform(1, 1.2)))
-            food_res.append(round(early_pop_normal * percentage * uniform(1, 1.3)))
-            fin_res.append(round(early_fin_normal * percentage, 2))
-
-        # elite var
+        # military, research and elite variables
         el_pop = [0.26, 0.24, 0.11, 0.13, 0.11, 0.12, 0.03]
         el_fin = [0.1, 0.12, 0.2, 0.08, 0.09, 0.11, 0.3]
         el_pop_res, el_pop_res_cap, el_fin_res, el_food_res = [], [], [], []
         elite_count = 1
 
+        """ append lists for easy assigning """
+        for percentage in normal_div:
+            pop_res.append(round(early_pop_normal * percentage))
+            pop_res_cap.append(round(early_pop_normal * percentage * uniform(1, 1.2)))
+            food_res.append(round(early_pop_normal * percentage * uniform(1, 1.3)))
+            fin_res.append(round(early_fin_normal * percentage, 2))
+        
         for percentage in el_pop:
             el_pop_res.append(round(early_pop_elite * percentage))
             if elite_count <= 2:
@@ -175,6 +194,7 @@ class GameGUI:
         for percentage in el_fin:
             el_fin_res.append(round(early_fin_elite * percentage, 2))
 
+        """ create an object for each Districts with determined variables """
         # population, population_cap, inequalities, happiness, health, finance, food_limit
         self.district_1 = District(pop_res[0], pop_res_cap[0], randint(55, 99), randint(60, 85),
                                    randint(65, 85), fin_res[0], food_res[0])
@@ -213,6 +233,7 @@ class GameGUI:
 
 class District:
     def __init__(self, population, population_cap, inequalities, happiness, health, finance, food_limit):
+        """ initialise Tkinter object with title and screen size """
         self.population = population
         self.population_cap = population_cap
         self.inequalities = inequalities
@@ -223,6 +244,7 @@ class District:
         self.property_values = [self.population, self.population_cap, self.inequalities, self.happiness, self.health,
                                 self.finance, self.food_limit]
 
+    """ methods begin with 'edit' are used to change District's var value when Option(not exist yet) is choosen """
     def edit_population(self, state, value):
         if state:
             self.population += value
@@ -260,9 +282,11 @@ class District:
             self.food_limit -= value
 
     def show_stats(self):
+        """ return a list of District variables """
         return self.property_values
 
     def show_string(self):
+        """ set string to be displayed on UI """
         property_string = "Happiness     : %s%%\n" \
                           "Population    : %s / %s\n" \
                           "Low class       : %s%%\n" \
@@ -274,11 +298,32 @@ class District:
 
 
 def main():
+    """ initialise Tkinter object with title and screen size """
     root = Tk()
-    # set the starting size of the window
+    md_ver = str(0.2)
+    root.wm_title("Moral Dictator %s" % md_ver)
     root.geometry('%dx%d' % (700, 400))
     gui = GameGUI(root)
     root.mainloop()
 
 if __name__ == '__main__':
     sys.exit(main())
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
